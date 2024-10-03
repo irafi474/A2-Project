@@ -77,7 +77,7 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
               <a class="nav-link text-white active" href="#">Home</a>
@@ -253,8 +253,8 @@
 
 
 <section>
-        <div class="d-flex justify-content-between align-items-center mt-5 ms-5">
-            <button type="button" class="btn btn-danger btn-block">Our Partners</button>
+        <div class="d-flex justify-content-center align-items-center mt-5">
+            <h1 style="color:white; font-weight: bold;">Our Partners</h1>
         </div>
         <img class="ms-5 mt-3" width="200" src="asset/tip tip.png" alt="">
 </section>
