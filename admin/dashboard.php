@@ -53,7 +53,7 @@
 <body>
 
     <?php
-    include 'db.php'; // Including the database connection file
+    include '../db.php'; // Including the database connection file
     $accountID = isset($_GET['accountID']) ? $_GET['accountID'] : '';
     
     // Fetching events from the database
@@ -104,6 +104,7 @@
                                     <td><?php echo $data['image']; ?></td>
                                     <td><?php echo $data['link']; ?></td>
                                     <td><?php echo $data['status']; ?></td>
+                                    
                                     <td>
                                         <a class="btn btn-warning" href="update.php?eventid=<?php echo $data['eventid']; ?>">Update</a>
                                         <a class="btn btn-danger" href="delete.php?eventid=<?php echo $data['eventid']; ?>">Delete</a>

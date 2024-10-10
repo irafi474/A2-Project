@@ -14,26 +14,27 @@
       <div class="collapse navbar-collapse justify-content-end me-3" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link text-white active" href="#">Home</a>
+            <a class="nav-link text-white active" aria-current="page" href="main.php">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="about.php">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#">Event</a>
+            <a class="nav-link text-white" href="event.php">Event</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link text-white" href="#">Partnership</a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link text-white" href="#">Contact Us</a>
           </li>
-          <!-- Form pencarian -->
-          <form action="search.php" method="GET">
-            <input type="text" name="search" placeholder="Search events or artists">
-            <button class="btn btn-outline-warning" type="submit">Search</button>
-          </form>
-
+          <!-- Form pencarian harus dimasukkan dalam <li> -->
+          <li class="nav-item">
+            <form class="d-flex" action="search.php" method="GET">
+              <input class="form-control me-2" type="search" name="search" placeholder="Search events or artists" aria-label="Search">
+              <button class="btn btn-outline-warning" type="submit">Search</button>
+            </form>
+          </li>
         </ul>
       </div>
     </div>

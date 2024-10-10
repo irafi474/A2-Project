@@ -83,8 +83,7 @@ $result = mysqli_query($db, $query);
                                     <h5 class="card-title"><?php echo $row['eventname']; ?></h5>
                                     <p class="card-text"><?php echo date("d F Y", strtotime($row['eventdate'])); ?></p>
                                     <p class="card-text"><?php echo $row['eventdescription']; ?></p>
-                                    <a href="ticket.php?eventid=<?php echo $row['eventid']; ?>" class="btn btn-warning">Get Ticket</a>
-
+                                    <a href="ticket.php?id=<?php echo $row['eventid']; ?>" class="btn btn-warning">Get Ticket</a>
                                 </div>
                             </div>
                         </div>

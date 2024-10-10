@@ -33,7 +33,7 @@ if (isset($_POST['login'])) {
             }
 
             // Redirect to dashboard with the correct ID
-            header("Location: dashboard.php?accountID=$id");
+            header("Location: admin/dashboard.php?accountID=$id");
             exit();
         } else {
             echo "<script>alert('Wrong Password');</script>";

@@ -23,12 +23,13 @@
     /* CSS untuk memastikan gambar menyesuaikan dengan kartu */
     .banner-carousel img {
       width: 100%;
-      /* Lebar gambar 100% dari carousel */
-      height: 720px;
-      /* Atur tinggi gambar sesuai kebutuhan untuk banner */
+      /* Lebar gambar akan menyesuaikan kontainer */
+      height: auto;
+      /* Atur tinggi gambar sesuai permintaan */
       object-fit: cover;
       /* Memastikan gambar tidak terdistorsi */
     }
+
 
     .card-img-top {
       width: 100%;
@@ -236,7 +237,10 @@
     <div class="d-flex justify-content-center align-items-center mt-5">
       <h1 style="color:white; font-weight: bold;">Our Partners</h1>
     </div>
-    <img class="ms-5 mt-3" width="200" src="asset/tip tip.png" alt="">
+    <div class="d-flex justify-content-center">
+      <img class="mt-3" width="200" src="asset/tip tip.png" alt="">
+
+    </div>
   </section>
 
   <footer>

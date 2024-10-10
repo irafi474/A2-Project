@@ -1,5 +1,5 @@
 <?php
- include 'db.php'; // Including the database connection file
+ include '../db.php'; // Including the database connection file
  $eventid = isset($_GET['eventid']) ? $_GET['eventid'] : '';
 
 
@@ -77,7 +77,7 @@ while ($data = mysqli_fetch_array($result)) {
 
 <body>
     <div class="mt-4">
-        <a href='index.php'><button>back to home</button></a>
+        <a href='dashboard.php'><button>back to home</button></a>
     </div>
     <div class="mx-auto">
         <div class="card">
