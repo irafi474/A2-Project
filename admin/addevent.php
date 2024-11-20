@@ -7,6 +7,7 @@ $eventdescription = "";
 $eventdate = "";
 $status = "";
 $image = "";
+$image2 = "";
 $error = "";
 $sukses = "";
 
@@ -51,26 +52,46 @@ if (isset($_POST['simpan'])) {
     // Memvalidasi dimensi gambar utama
     if ($_FILES['image']['error'] === UPLOAD_ERR_OK) {
         list($width, $height) = getimagesize($image_tmp_name);
-        if ($width == 970 && $height == 425) {
+        if ($width == 1280 && $height == 920) {
             if (move_uploaded_file($image_tmp_name, $image_path)) {
                 $image = $image_name;
             } else {
                 $error = "Gagal mengunggah gambar utama.";
             }
         } else {
-            $error = "Gambar utama harus berukuran 970x425 piksel.";
+            $error = "Gambar utama harus berukuran 1280x920 piksel.";
+        }
+    } else {
+        $error = "Terjadi kesalahan saat mengunggah gambar utama.";
+    }
+
+    $image_name2 = getUniqueFileName($uploadDir, basename($_FILES['image2']['name']));
+    $image_tmp_name2 = $_FILES['image2']['tmp_name'];
+    $image_path2 = $uploadDir . $image_name;
+
+    // Memvalidasi dimensi gambar utama
+    if ($_FILES['image2']['error'] === UPLOAD_ERR_OK) {
+        list($width, $height) = getimagesize($image_tmp_name2);
+        if ($width == 1280 && $height == 920) {
+            if (move_uploaded_file($image_tmp_name2, $image_path2)) {
+                $image2 = $image_name2;
+            } else {
+                $error = "Gagal mengunggah gambar utama.";
+            }
+        } else {
+            $error = "Gambar utama harus berukuran 1280x920 piksel.";
         }
     } else {
         $error = "Terjadi kesalahan saat mengunggah gambar utama.";
     }
 
     // Memvalidasi input
-    if (empty($eventname) || empty($location) || empty($eventdescription) || empty($eventdate) || empty($status) ||  empty($image)) {
+    if (empty($eventname) || empty($location) || empty($eventdescription) || empty($eventdate) || empty($status) ||  empty($image) || empty($image2)) {
         $error = "Semua field harus diisi.";
     } else {
         // Memasukkan data ke tabel event
-        $sql1 = "INSERT INTO event (eventname, location, eventdescription, eventexplan, eventdate, status, link, image) 
-                 VALUES ('$eventname', '$location', '$eventdescription', '$eventexplan', '$eventdate', '$status', '$link', '$image')";
+        $sql1 = "INSERT INTO event (eventname, location, eventdescription, eventexplan, eventdate, status, link, image, stage) 
+                 VALUES ('$eventname', '$location', '$eventdescription', '$eventexplan', '$eventdate', '$status', '$link', '$image', '$image2')";
         if (mysqli_query($db, $sql1)) {
             $eventid = mysqli_insert_id($db); // Dapatkan ID event yang baru dimasukkan
 
@@ -249,7 +270,7 @@ if (isset($_POST['simpan'])) {
 
                                             <div class="mb-3">
                                                 <label for="link" class="form-label">Ticket Link</label>
-                                                <input type="url" class="form-control" id="link" name="link" >
+                                                <input type="url" class="form-control" id="link" name="link">
                                                 <span id="link-error" style="color: blue;">Masukan Link, Jika belum Ada Kosongkan</span>
                                             </div>
 
@@ -258,7 +279,11 @@ if (isset($_POST['simpan'])) {
                                                 <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
                                                 <span id="image-error" style="color: red;">Banner Image Hrus Diisi</span>
                                             </div>
-
+                                            <div class="mb-3">
+                                                <label for="image2" class="form-label">Stage Image</label>
+                                                <input type="file" class="form-control" id="image2" name="image2" accept="image/*" required>
+                                                <!-- <span id="image-error" style="color: red;">Banner Image Hrus Diisi</span> -->
+                                            </div>
                                             <div id="additional-images-container">
                                                 <div class="mb-3 additional-image-row">
                                                     <label for="imageft[]" class="form-label">Artist Images (1080x1080)</label>
@@ -369,7 +394,7 @@ if (isset($_POST['simpan'])) {
                                 } else {
                                     let img = new Image();
                                     img.onload = function() {
-                                        if (this.width !== 970 || this.height !== 425) {
+                                        if (this.width !== 1280 || this.height !== 920) {
                                             document.getElementById('image-error').textContent = "Image must be 970x425";
                                             isValid = false;
                                         }
@@ -377,6 +402,20 @@ if (isset($_POST['simpan'])) {
                                     img.src = URL.createObjectURL(image);
                                 }
 
+                                let image2 = document.getElementById('image2').files[0];
+                                if (!image) {
+                                    document.getElementById('image-error').textContent = "Stage Price Required";
+                                    isValid = false;
+                                } else {
+                                    let img = new Image2();
+                                    img.onload = function() {
+                                        if (this.width !== 1280 || this.height !== 920) {
+                                            document.getElementById('image-error').textContent = "Image must be 970x425";
+                                            isValid = false;
+                                        }
+                                    };
+                                    img.src = URL.createObjectURL(image);
+                                }
                                 // Additional Images Validation
                                 const imageInputs = document.querySelectorAll('input[name="imageft[]"]');
                                 imageInputs.forEach((input, index) => {

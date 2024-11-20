@@ -10,3 +10,77 @@ body{
 a{
     text-decoration: none;
 }
+
+.instagram-icon {
+    background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+    width: 50px;
+    /* Ukuran default lingkaran */
+    height: 50px;
+    /* Ukuran default lingkaran */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+
+  .instagram-icon i {
+    color: #ffffff;
+    font-size: 24px;
+    /* Ukuran default ikon */
+  }
+
+  .instagram-icon:hover {
+    transform: scale(1.1);
+  }
+
+  /* Responsif untuk teks dan ikon */
+  .instagram-text {
+    color: #ffffff;
+    margin-left: 10px;
+    font-size: 18px;
+    /* Ukuran teks default */
+  }
+
+  .instagram-icon:hover .instagram-text {
+    font-size: 20px;
+    /* Ukuran teks saat hover */
+  }
+
+  /* Responsif ukuran untuk layar lebih kecil */
+  @media (max-width: 768px) {
+    .instagram-icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    .instagram-icon i {
+      font-size: 20px;
+    }
+
+    .instagram-text {
+      font-size: 14px;
+      /* Ukuran teks untuk tablet dan perangkat kecil */
+      margin-left: 8px;
+      /* Jarak teks dengan ikon */
+    }
+  }
+
+  @media (max-width: 576px) {
+    .instagram-icon {
+      width: 35px;
+      height: 35px;
+    }
+
+    .instagram-icon i {
+      font-size: 18px;
+    }
+
+    .instagram-text {
+      font-size: 12px;
+      /* Ukuran teks untuk smartphone */
+      margin-left: 6px;
+      /* Jarak teks dengan ikon */
+    }
+  }

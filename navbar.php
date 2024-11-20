@@ -1,6 +1,9 @@
 <nav class="navbar navbar-expand-lg bg-dark">
     <div class="container-fluid">
-      <img src="asset/a2 logo 1.png" style="height: 2.4375rem" alt="Logo" />
+      <div class="d-flex">
+        <img src="asset/logo a2 (1) (1) (1).png" style="height: 2.4375rem" alt="Logo" />
+        <p class="mt-1 ms-2" style="color: white; font-weight:600 ; font-size: 18px;">Antara Kreasi Digital</p>
+      </div>
       <button
         class="navbar-toggler"
         type="button"
@@ -17,7 +20,7 @@
             <a class="nav-link text-white active" aria-current="page" href="main.php">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="about.php">About</a>
+            <!-- <a class="nav-link text-white" href="about.php">About</a> -->
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="event.php">Event</a>
